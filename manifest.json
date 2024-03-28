@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Giphy Mp4 Downloader",
+  "description": "Download Giphy gif's in Mp4 format",
+  "version": "1.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/content-script.js"
+      ],
+      "matches": [
+        "https://giphy.com/clips/*",
+        "https://giphy.com/stickers/*",
+        "https://giphy.com/gifs/*",
+        "https://www.giphy.com/clips/*",
+        "https://www.giphy.com/stikers/*",
+        "https://www.giphy.com/gifs/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/service_worker.js"
+  },
+  "web_accessible_resources": [{
+    "resources": [ "assets/icon.png"],
+    "matches": ["<all_urls>"]
+  }],
+  "permissions": ["storage"],
+  "icons": {
+    "16": "assets/icon.png",
+    "32": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  }
+}
