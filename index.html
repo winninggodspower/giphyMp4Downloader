@@ -9,8 +9,9 @@
 </head>
 
 <body>
-  <div id="loader" class="lds-circle">
-    <div></div>
+  <div id="loader">
+    <div class="lds-circle"><div></div></div>
+    <p style="color: rgba(212, 208, 208, 0.884);">page still loading</p>
   </div>
   <div id="content">
     <h1>Download Gif</h1>
@@ -21,6 +22,10 @@
 <style>
   div#content {
     display: none
+  }
+
+  div#loader p{
+    font-size: 12px;
   }
 
   * {
