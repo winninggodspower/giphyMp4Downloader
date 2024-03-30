@@ -1,37 +1,52 @@
 <html>
-  <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  </head>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
 <body>
-  <h1>Download Gif</h1>
-  <img src="" alt="">
-  <a download target="_blank">download</a>
+  <div id="loader" class="lds-circle">
+    <div></div>
+  </div>
+  <div id="content">
+    <h1>Download Gif</h1>
+    <img src="" alt="">
+    <a download target="_blank">download</a>
+  </div>
 </body>
 <style>
-  *{
+  div#content {
+    display: none
+  }
+
+  * {
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
   }
-  body{
+
+  body {
     padding: 0px;
     background-color: rgb(43, 121, 211);
   }
-  h1{
+
+  h1 {
     text-align: center;
     font-size: 16px;
     color: white;
     white-space: nowrap;
   }
 
-  img{
+  img {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
 
-  a{
+  a {
     display: block;
     background-color: white;
     text-decoration: none;
@@ -48,5 +63,45 @@
     border-radius: 5px;
   }
 </style>
+
+<style>
+  /* loading animation */
+  .lds-circle {
+    display: inline-block;
+    transform: translateZ(1px);
+  }
+
+  .lds-circle>div {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    background: #fff;
+    animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+
+  @keyframes lds-circle {
+
+    0%,
+    100% {
+      animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+
+    0% {
+      transform: rotateY(0deg);
+    }
+
+    50% {
+      transform: rotateY(1800deg);
+      animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+
+    100% {
+      transform: rotateY(3600deg);
+    }
+  }
+</style>
 <script src="./scripts/popup.js"></script>
+
 </html>

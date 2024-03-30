@@ -1,8 +1,16 @@
 
 // Function to update popup content
 function updatePopupContent(videoUrl, mediaUrl) {
-    document.querySelector('a').href = videoUrl || '';
-    document.querySelector('img').src = changeToGif(mediaUrl) || '';
+    if (videoUrl && mediaUrl) {
+        // remove loading animation
+        document.getElementById('loader').style.display = 'none'
+
+        // make content visible
+        document.getElementById('content').style.display = 'block'
+
+        document.querySelector('a').href = videoUrl || '';
+        document.querySelector('img').src = changeToGif(mediaUrl) || '';
+    }
 }
 
 (async ()=>{
