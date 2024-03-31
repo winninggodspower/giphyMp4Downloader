@@ -13,6 +13,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse){
   }
 
   else if (message.type === "getVideoUrls") {
+    if (messageFromContent) {
+      sendResponse(messageFromContent);
+      return true
+    }
     chrome.storage.local.get(['messageFromContent'], (response)=>{
       console.log(response.messageFromContent);
       sendResponse(response.messageFromContent)
