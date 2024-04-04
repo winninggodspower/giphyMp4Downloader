@@ -3,13 +3,13 @@ let messageFromContent;
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse){
   if (message.type == 'clearVideoUrls') {
     console.log('clearing video urls');
-    chrome.storage.local.remove('messageFromContent')
+    chrome.storage.session.remove('messageFromContent')
   }
   
   else if (message.type == 'setVideoUrls') {
     console.log('setting video urls');
     messageFromContent = message;
-    chrome.storage.local.set({messageFromContent: messageFromContent})
+    chrome.storage.session.set({messageFromContent: messageFromContent})
   }
 
   else if (message.type === "getVideoUrls") {
@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse){
       sendResponse(messageFromContent);
       return true
     }
-    chrome.storage.local.get(['messageFromContent'], (response)=>{
+    chrome.storage.session.get(['messageFromContent'], (response)=>{
       console.log(response.messageFromContent);
       sendResponse(response.messageFromContent)
     })
