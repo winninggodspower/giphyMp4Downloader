@@ -40,7 +40,7 @@ function addDownloadButton(mediaElement, videoUrl){
   donwloadButton.href = videoUrl
 
   const imageUrl = chrome.runtime.getURL('assets/icon.png');
-  donwloadButton.innerHTML = `<img style="border-radius: 100%" src="${imageUrl}" width="30px">`
+  donwloadButton.innerHTML = `<img style="border-radius: 100%" src="${imageUrl}" width="35px">`
 
   // style download button
   donwloadButton.style.position = 'absolute';
